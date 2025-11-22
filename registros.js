@@ -11,9 +11,9 @@ let popupAtiva = false;
 // === Ao carregar a página ===
 window.onload = function() {
   const nomeUsuario = usuarioLogado.nome || "Usuário";
-  let iconeSexo = "../icons/user.png";
-  if (usuarioLogado.sexo === "Masculino") iconeSexo = "../icons/homem.png";
-  if (usuarioLogado.sexo === "Feminino") iconeSexo = "../icons/mulher.png";
+  let iconeSexo = "icons/user.png";
+  if (usuarioLogado.sexo === "Masculino") iconeSexo = "icons/homem.png";
+  if (usuarioLogado.sexo === "Feminino") iconeSexo = "icons/mulher.png";
 
   document.getElementById("usuarioLogado").innerHTML = `
     <img src="${iconeSexo}" alt="Usuário" class="icon-funcionario" style="vertical-align: middle; margin-right: 6px;">
@@ -93,13 +93,13 @@ function atualizarStatus() {
   if (iconStatus) {
     switch (status.value) {
       case "Finalizado":
-        iconStatus.src = "../icons/status_finalizado.png"; // cadeado fechado
+        iconStatus.src = "icons/status_finalizado.png"; // cadeado fechado
         break;
       case "Em andamento":
-        iconStatus.src = "../icons/status_parcial.png"; // ícone intermediário (opcional)
+        iconStatus.src = "icons/status_parcial.png"; // ícone intermediário (opcional)
         break;
       default:
-        iconStatus.src = "../icons/status_aberto.png"; // cadeado aberto
+        iconStatus.src = "icons/status_aberto.png"; // cadeado aberto
     }
   }
 }
@@ -113,7 +113,7 @@ function limparCampos() {
   });
   document.getElementById("total").value = "";
   document.getElementById("status").value = "Aberto";
-  document.getElementById("iconStatus").src = "../icons/status_aberto.png";
+  document.getElementById("iconStatus").src = "icons/status_aberto.png";
   document.getElementById("modoManual").checked = false;
 }
 // === Alterna entre modo automático e manual ===
@@ -374,13 +374,13 @@ function mostrarBotoesEdicao(index) {
   linhaBotao.innerHTML = `
     <div class="botoes-edicao">
       <button class="btn-editar" indexReal="btnEditar">
-        <img src="../icons/editar.png" alt="">Editar
+        <img src="icons/editar.png" alt="">Editar
       </button>
       <button class="btn-salvar" id="btnSalvar">
-        <img src="../icons/salvar.png" alt="">Salvar
+        <img src="icons/salvar.png" alt="">Salvar
       </button>
       <button class="btn-excluir" id="btnExcluir">
-        <img src="../icons/excluir.png" alt="">Excluir
+        <img src="icons/excluir.png" alt="">Excluir
       </button>
     </div>
   `;
@@ -438,7 +438,7 @@ function restaurarInterfacePadrao() {
   document.getElementById("btnEditarReg").style.display = "none";
 
   const iconEditar = document.getElementById("iconEditarReg");
-  iconEditar.src = "../icons/editar.png";
+  iconEditar.src = "icons/editar.png";
   modoEdicaoRegistro = false;
 
   const linhaBotao = document.querySelector(".linha-botao");
@@ -453,7 +453,7 @@ function restaurarInterfaceOcorrencias() {
   // Resetar ícone editar → salvar
   const iconEditar = document.getElementById("iconEditarOc");
   if (iconEditar) {
-      iconEditar.src = "../icons/editar.png";
+      iconEditar.src = "icons/editar.png";
   }
 
   // Resetar flags
@@ -1190,7 +1190,7 @@ document.getElementById("btnEditarOc").onclick = function () {
       celJust.style.background = "#fff9d6";
       celJust.focus();
 
-      iconEditar.src = "../icons/salvar.png";
+      iconEditar.src = "icons/salvar.png";
       document.getElementById("btnEditarOc").title = "Salvar";
       modoEdicaoOcorrencia = true;
       return;
@@ -1218,7 +1218,7 @@ document.getElementById("btnEditarOc").onclick = function () {
   celJust.contentEditable = false;
   celJust.style.background = "transparent";
 
-  iconEditar.src = "../icons/editar.png";
+  iconEditar.src = "icons/editar.png";
   document.getElementById("btnEditarOc").title = "Editar";
   modoEdicaoOcorrencia = false;
 
@@ -1270,7 +1270,7 @@ document.getElementById("btnEditarReg").onclick = function () {
       });
 
       modoEdicaoRegistro = true;
-      iconEditar.src = "../icons/salvar.png";
+      iconEditar.src = "icons/salvar.png";
       this.title = "Salvar registro";
       return;
   }
@@ -1366,4 +1366,5 @@ document.getElementById("btnEditarReg").onclick = function () {
   restaurarInterfacePadrao();
 
   alert("Registro atualizado com sucesso!");
+
 };
