@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Exibição do usuário logado
   if (usuarioLogado && spanUsuario) {
-    let iconeSexo = "../icons/user.png";
-    if (usuarioLogado.sexo === "Masculino") iconeSexo = "../icons/homem.png";
-    if (usuarioLogado.sexo === "Feminino") iconeSexo = "../icons/mulher.png";
+    let iconeSexo = "icons/user.png";
+    if (usuarioLogado.sexo === "Masculino") iconeSexo = "icons/homem.png";
+    if (usuarioLogado.sexo === "Feminino") iconeSexo = "icons/mulher.png";
 
     spanUsuario.innerHTML = `
       <img src="${iconeSexo}" alt="Usuário" class="icon-funcionario" style="vertical-align: middle; margin-right: 6px;">
@@ -90,9 +90,9 @@ function carregarFuncionarios() {
     const card = document.createElement("div");
     card.classList.add("card-funcionario");
 
-    let iconeSexo = "../icons/user.png";
-    if (f.sexo === "Masculino") iconeSexo = "../icons/homem.png";
-    if (f.sexo === "Feminino") iconeSexo = "../icons/mulher.png";
+    let iconeSexo = "icons/user.png";
+    if (f.sexo === "Masculino") iconeSexo = "icons/homem.png";
+    if (f.sexo === "Feminino") iconeSexo = "icons/mulher.png";
 
     card.innerHTML = `
       <div class="card-header">
@@ -257,4 +257,5 @@ function fazerLogout() {
   if (!confirm("Deseja realmente sair do sistema?")) return;
   localStorage.removeItem("usuarioLogado");
   window.location = "login.html";
+
 }
