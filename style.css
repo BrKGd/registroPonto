@@ -1,0 +1,1152 @@
+/* === PALETA YPETRO === */
+:root {
+  --verde-ypetro: #006837;
+  --amarelo-ypetro: #F2B705;
+  --azul-claro: #b6e8fb;
+  --verde-claro: #00A859;
+  --vermelho: #D32F2F;
+  --cinza-claro: #F7F9FB;
+  --cinza-medio: #E1E5EA;
+  --cinza-borda: #D0D4DA;
+  --texto-principal: #1A1A1A;
+  --texto-suave: #555;
+  --branco: #FFFFFF;
+  --azul: #1976D2;
+}
+
+/* === BASE === */
+body {
+  background-color: var(--cinza-claro);
+  color: var(--texto-principal);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* === CABEÇALHO === */
+header {
+  background: var(--branco);
+  border-bottom: 3px solid var(--amarelo-ypetro);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: var(--verde-ypetro);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header button {
+  background: var(--verde-ypetro);
+  color: var(--branco);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+header button:hover {
+  background: var(--verde-claro);
+}
+
+header button.danger {
+  background: var(--vermelho);
+}
+
+header button.danger:hover {
+  background: #E53935;
+}
+
+/* === CONTEÚDO === */
+main {
+  padding: 28px;
+  max-width: 100%;
+  margin: auto;
+}
+
+/* === ÍCONE DE LOGOUT === */
+.logout-icon {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  filter: invert(34%) sepia(90%) saturate(600%) hue-rotate(90deg);
+  transition: 0.3s;
+}
+
+.logout-icon:hover {
+  transform: scale(1.3);
+  filter: invert(40%) sepia(100%) saturate(700%) hue-rotate(60deg);
+}
+
+.icon-btn{
+  width: 28px;
+  height: 28px;
+}
+ .icon-btn:hover{
+  transform: scale(1.3);
+ }
+
+/* === FORMULÁRIOS === */
+section.form {
+  background: var(--branco);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+section.form input,
+section.form select {
+  background: var(--branco);
+  color: var(--texto-principal);
+  border: 1px solid var(--cinza-borda);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+section.form input:focus,
+section.form select:focus {
+  border-color: var(--verde-ypetro);
+  outline: none;
+  box-shadow: 0 0 3px var(--verde-ypetro);
+}
+
+/* === TÍTULOS DE CAMPOS (Funcionário / Data) === */
+section.form label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--verde-ypetro);
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+/* === BOTÕES DE AÇÃO (EDITAR, EXCLUIR, SALVAR) === */
+/* === BOTÕES DE AÇÃO (EDITAR, EXCLUIR, SALVAR) === */
+.botoes-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.botoes-acoes button {
+  width: 100px;          /* 🔹 largura fixa */
+  height: 35px;          /* 🔹 altura fixa */
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--branco);
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔹 centraliza texto verticalmente */
+}
+
+/* Azul (Editar) */
+.btn-azul {
+  background: #1976D2;
+}
+.btn-azul:hover {
+  background: #1E88E5;
+}
+
+/* Vermelho (Excluir) */
+.btn-vermelho {
+  background: var(--vermelho);
+}
+.btn-vermelho:hover {
+  background: #e53935;
+}
+
+/* Verde (Salvar) */
+.btn-verde {
+  background: var(--verde-ypetro);
+}
+.btn-verde:hover {
+  background: var(--verde-claro);
+}
+
+/* === LISTAS E TABELAS === */
+section.lista {
+  margin-top: 36px;
+}
+
+/* Título acima do formulário — exatamente igual ao da lista */
+section.lista h2, .titulo-secao {
+  padding-left: 10px;
+  font-size: 1.1rem;
+  color: var(--verde-ypetro);
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+/* 🔹 Permite ajuste automático de largura das colunas */
+table {
+  width: auto;
+  min-width: 100%;
+  table-layout: auto;
+}
+
+/* 🔹 Deixa o cabeçalho fixo com alinhamento limpo */
+thead {
+  background: var(--verde-ypetro);
+  color: var(--branco);
+  white-space: nowrap;
+}
+
+/* 🔹 Células ajustáveis ao conteúdo */
+th, td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--cinza-borda);
+  text-align: center;
+  font-size: 0.95rem;
+  white-space: nowrap; /* evita quebra de linha */
+  
+}
+
+/* 🔹 Permite rolagem horizontal se precisar */
+section.lista {
+  margin-top: 36px;
+  overflow-x: auto;
+}
+
+td strong {
+  color: var(--verde-ypetro);
+}
+
+/* === STATUS === */
+.status-col {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+tr.aberto .status-col {
+  color: var(--amarelo-ypetro);
+}
+
+tr.finalizado .status-col {
+  color: var(--verde-claro);
+}
+
+/* === BOTÕES DE AÇÃO DE TABELA === */
+.btn-entrada {
+  background: var(--verde-claro);
+}
+
+.btn-saida {
+  background: var(--vermelho);
+}
+
+.btn-entrada:hover {
+  background: #00c56b;
+}
+
+.btn-saida:hover {
+  background: #e04545;
+}
+
+/* === INDICADORES (CARDS) === */
+.indicadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.card-indicador {
+  background: var(--branco);
+  border: 2px solid var(--amarelo-ypetro);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-indicador h3 {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.card-indicador p {
+  margin: 4px 0 0;
+  color: var(--verde-ypetro);
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+/* === LOGIN === */
+.login-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cinza-claro);
+  height: 100vh;
+}
+
+.login-container {
+  background: var(--branco);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  width: 35%;
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.login-box h2 {
+  color: var(--verde-ypetro);
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 14px;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.login-box input:focus {
+  border-color: var(--verde-ypetro);
+  outline: none;
+  box-shadow: 0 0 3px var(--verde-claro);
+}
+
+.login-box button {
+  width: 35%;
+  background: var(--verde-ypetro);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  align-items: center;
+}
+
+.login-box button:hover {
+  background: var(--verde-claro);
+}
+
+/* === GRID DE FUNCIONÁRIOS (3 por linha) === */
+.grid-funcionarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px; /* 🔽 ligeiramente menor */
+  margin-top: 18px;
+}
+
+/* === CARD DE FUNCIONÁRIO (compacto ajustado) === */
+.card-funcionario {
+  background: var(--branco);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 8px 12px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card-funcionario:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* === CABEÇALHO DO CARD === */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+/* === Linha dos horários === */
+.linha-horarios {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 35px;
+  justify-content: space-between;
+  background: var(--branco);
+  border: 1px solid var(--cinza-borda);
+  border-radius: 10px;
+  padding: 5px;
+  }
+  
+  .linha-horarios .campo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  min-width: 50px;
+  }
+
+.linha-horarios input {
+  flex: 1;
+  text-align: center;
+  width: 15%;
+}
+
+/* === Ícones === */
+/* === ÍCONES DOS CAMPOS DE HORÁRIO === */
+.icon-campo {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-campo:hover{
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
+/* === Botão Registrar Horário === */
+.linha-botao {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+#btnRegistrar {
+  width: 150px;
+  height: 35px;
+  background: #1976D2; /* Azul */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btnRegistrar:hover {
+  background: #1E88E5;
+}
+/* === ÍCONE DO FUNCIONÁRIO === */
+.icon-funcionario {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--branco);
+  border: 2px solid var(--cinza-borda);
+  padding: 3px;
+  object-fit: contain;
+}
+
+/* === TEXTO DO CARD === */
+.card-funcionario h3 {
+  margin: 0;
+  color: var(--verde-ypetro);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.card-funcionario p {
+  margin: 2px 0;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* === TIPO DE USUÁRIO === */
+.tipo {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  color: var(--branco);
+  margin-top: 3px;
+}
+
+.tipo.admin {
+  background: var(--verde-ypetro);
+}
+
+.tipo.comum {
+  background: var(--amarelo-ypetro);
+  color: var(--texto-principal);
+}
+
+.grupo-linha {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.grupo-linha.horarios {
+  margin-top: 8px;
+}
+
+.destaque-status {
+  flex: 1;
+  justify-content: center;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.destaque-status input {
+  font-weight: bold;
+  color: var(--verde-ypetro);
+  font-size: 1rem;
+}
+
+.usuario-logado {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: var(--amarelo-ypetro);
+}
+
+.usuario-logado img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* Toggle switch base */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+}
+
+/* Oculta checkbox padrão */
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider da switch */
+.toggle-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 28px;
+}
+
+/* Ponto da switch */
+.toggle-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Estado ligado */
+.toggle-switch input:checked + .slider {
+  background-color: var(--verde-ypetro);
+}
+
+/* Ponto na posição ligad0 */
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Efeito de foco */
+.toggle-switch input:focus + .slider {
+  box-shadow: 0 0 1px var(--verde-ypetro);
+}
+
+/* 🔹 Estilo das mensagens de erro de formato */
+.erro-hora {
+  display: block;
+  color: red;
+  font-weight: 5;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}.btn-transparente {
+  background: transparent;
+  border: none;
+  padding: 5px;
+}
+.btn-transparente:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.header-centralizado {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* 3 áreas: título - usuário - botões */
+  align-items: center;
+  text-align: center;
+}
+
+.header-centralizado h1 {
+  justify-self: start;
+}
+
+.usuario-centralizado {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-family: 'Segoe UI';
+  color: var(--azul);
+}
+
+.usuario-centralizado img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--cinza-borda);
+  object-fit: contain;
+}
+
+.header-centralizado .header-buttons {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* === Toggle "Registrar manualmente" centralizado === */
+.toggle-container {
+  display: flex;
+  align-items: center;          /* alinha verticalmente */
+  justify-content: left;      /* centraliza horizontalmente */
+  gap: 12px;                    /* espaçamento entre switch e texto */
+  margin: 16px auto;
+  width: 100%;
+}
+
+.toggle-switch {
+  position: relative;
+  top: 0;                       /* mantém o toggle alinhado com o texto */
+  flex-shrink: 0;               /* impede que ele distorça em telas menores */
+}
+
+.toggle-container span {
+  font-weight: 600;
+  color: var(--verde-ypetro);
+  font-size: 1rem;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* === BOTÕES DE EDIÇÃO (Editar / Salvar / Excluir) === */
+.botoes-edicao {
+  display: flex;
+  justify-content: center; /* Centraliza os botões */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.botoes-edicao button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  height: 35px;
+}
+
+/* EFEITOS DE HOVER (sutil) */
+.botoes-edicao button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* CORES INDIVIDUAIS */
+.btn-editar {
+  background: var(--azul);
+}
+.btn-editar:hover {
+  background: #1E88E5;
+}
+
+.btn-salvar {
+  background: var(--verde-ypetro);
+}
+.btn-salvar:hover {
+  background: var(--verde-claro);
+}
+
+.btn-excluir {
+  background: var(--vermelho);
+}
+.btn-excluir:hover {
+  background: #E53935;
+}
+
+/* Ícones opcionais */
+.botoes-edicao img {
+  width: 15px;
+  height: 15px;
+  filter: invert(100%);
+}
+
+/* === ÍCONE DE EXPORTAR (substitui botão visível) === */
+.exportar-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.exportar-container .btn-transparente {
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.exportar-container .btn-transparente:hover {
+
+  transform: scale(1.05);
+}
+
+.exportar-container .icon-btn {
+  width: 35px;
+  height: 35px;
+  transition: filter 0.2s ease;
+}
+
+/* === Filtro de mês + ícone alinhados === */
+.filtro-export-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* filtro à esquerda, ícone à direita */
+  margin: 10px 10px 15px 10px;
+}
+
+/* Filtro de mês */
+.filtro-mes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filtro-mes label {
+  font-weight: 600;
+  color: var(--verde-ypetro);
+}
+
+.filtro-mes select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filtro-mes select:hover {
+  border-color: var(--verde-ypetro);
+  box-shadow: 0 0 5px rgba(0, 150, 136, 0.3);
+}
+
+/* CONTAINER ÚNICO (filtros + ícones) */
+.filtro-ocorrencias-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* ⬅ ALINHAMENTO VERTICAL PERFEITO */
+  margin: 10px 10px 15px 10px;
+}
+
+/* Bloco dos filtros */
+.filtros-ocorrencias {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Bloco dos ícones */
+.acoes-ocorrencias {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* === Estilo da tabela de ocorrências === */
+.lista h2 {
+  margin-top: 30px;
+  color: var(--verde-ypetro);
+}
+
+/* === Estilo da tabela de ocorrências (versão aprimorada) === */
+section.lista.ocorrencias {
+  margin-top: 40px;
+}
+
+section.lista.ocorrencias h2 {
+  margin-bottom: 8px;
+  color: var(--verde-ypetro);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+#listaOcorrencias {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--branco);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 🔹 Cabeçalho */
+#listaOcorrencias th {
+  background-color: var(--verde-ypetro);
+  color: var(--branco);
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+/* 🔹 Linhas */
+#listaOcorrencias td {
+  text-align: center;
+  font-size: 0.93rem;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--cinza-borda);
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+}
+
+/* 🔹 Hover */
+#listaOcorrencias tr:hover, tbody tr:hover{
+  background-color: var(--azul-claro);
+  transition: 350ms;
+}
+
+/* === Cores dinâmicas para o tipo da ocorrência === */
+#listaOcorrencias tr.hora-extra td:nth-child(2) {
+  color: var(--verde-ypetro);
+  font-weight: 600;
+}
+
+#listaOcorrencias tr.atraso td:nth-child(2) {
+  color: var(--vermelho);
+  font-weight: 600;
+}
+
+/* === Ícones opcionais (caso queira usar no futuro) === */
+#listaOcorrencias td.tipo-icon {
+  width: 35px;
+  text-align: center;
+}
+
+#listaOcorrencias td.tipo-icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(0.2);
+}
+
+/* === Popup justificativa refinado === */
+.popup-justificativa {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  animation: fadeIn 0.25s ease;
+}
+
+.popup-box {
+  background: var(--branco);
+  padding: 24px;
+  border-radius: 14px;
+  width: 380px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border-top: 5px solid var(--verde-ypetro);
+}
+
+.popup-box h3 {
+  color: var(--verde-ypetro);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.popup-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+.popup-box table td {
+  padding: 4px 8px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.popup-box textarea {
+  width: 94%;
+  height: 90px;
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--cinza-borda);
+  resize: none;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.popup-box button {
+  margin-top: 12px;
+  margin-right: 8px;
+  padding: 8px 16px;
+  width: 110px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--branco);
+  transition: 0.3s;
+}
+
+.popup-box .btn-ok {
+  background: var(--verde-ypetro);
+}
+
+.popup-box .btn-ok:hover {
+  background: var(--verde-claro);
+}
+
+.popup-box .btn-cancelar {
+  background: var(--vermelho);
+}
+
+.popup-box .btn-cancelar:hover {
+  background: #c62828;
+}
+
+/* === Animações de destaque nos campos de horário === */
+@keyframes destaque-verde {
+  0% { box-shadow: 0 0 0px rgba(0,168,89,0); }
+  50% { box-shadow: 0 0 10px 3px rgba(0,168,89,0.6); }
+  100% { box-shadow: 0 0 0px rgba(0,168,89,0); }
+}
+
+@keyframes destaque-vermelho {
+  0% { box-shadow: 0 0 0px rgba(211,47,47,0); }
+  50% { box-shadow: 0 0 10px 3px rgba(211,47,47,0.6); }
+  100% { box-shadow: 0 0 0px rgba(211,47,47,0); }
+}
+
+.destaque-verde {
+  animation: destaque-verde 1s ease;
+}
+
+.destaque-vermelho {
+  animation: destaque-vermelho 1s ease;
+}
+
+
+#btnLimparRegistros, #btnLimpar{
+  display: none;
+}
+
+/* === Animação de entrada suave === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 900px) {
+  .grid-funcionarios {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .grid-funcionarios {
+      grid-template-columns: repeat(1, 1fr);
+  }
+  main { padding: 16px; }
+  th, td { font-size: 0.85rem; padding: 6px; }
+  header h1 { font-size: 1.3rem; }
+}
+/* === ESTILO MODERNO PARA INPUT DATE === */
+
+.filtro-mes input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 8px 12px;
+  height: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--cinza-borda);
+  background: var(--branco);
+
+  font-size: 0.95rem;
+  color: var(--texto-principal);
+
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* Placeholder interno mais suave */
+.filtro-mes input[type="date"]::placeholder {
+  color: #888;
+  font-weight: 500;
+}
+
+/* Ícone padrão do Chrome: escondemos */
+.filtro-mes input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+}
+
+/* Criar um ícone customizado */
+.filtro-mes input[type="date"] {
+  background-image: url('../icons/calendar.png'); /* coloque seu ícone aqui */
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: right 10px center;
+}
+
+/* Hover */
+.filtro-mes input[type="date"]:hover {
+  border-color: var(--verde-ypetro);
+  background-color: #f3fdf7;
+}
+
+/* Focus */
+.filtro-mes input[type="date"]:focus {
+  outline: none;
+  border-color: var(--verde-ypetro);
+  box-shadow: 0 0 0 2px rgba(0, 168, 89, 0.25);
+}
+
+/* Deixar alinhado com o select */
+.filtro-mes input[type="date"],
+.filtro-mes select {
+  width: 160px;
+}
+/* animação suave para destacar linha selecionada */
+.linha-selecionada {
+  background-color: #e7f8ef !important; /* verde clarinho */
+  transition: background-color 0.25s ease-in-out;
+}
+
+/* para linhas normais: aplicar transição também */
+.lista table tbody tr {
+  transition: background-color 0.25s ease-in-out;
+}
+
+/* Mensagem de erro no login */
+.login-msg {
+  color: var(--vermelho);
+  
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: none; /* inicia escondido */
+  animation: aparecer 0.3s ease-out;
+}
+
+/* animação suave */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+tr[data-id] {
+  position: relative;
+}
+
+tr[data-id]:hover::after {
+  content: attr(data-id);
+  position: absolute;
+  left: 10px;
+  top: -28px;
+  background: var(--verde-claro);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.status-finalizado {
+  color: #008000 !important;
+  font-weight: bold;
+}
+
+.status-aberto {
+  color: #c47f00 !important;
+  font-weight: bold;
+}
+
+.status-atrasado {
+  color: #d10000 !important;
+  font-weight: bold;
+}
+
+.status-desconhecido {
+  color: #666 !important;
+}
+
+.icon-acao {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+  filter: drop-shadow(1px 1px 1px #999);
+}
+
+.icon-acao:hover {
+  transform: scale(1.15);
+}
+
+#btnImportarReg, #btnLimparTodos, #btnLimparOcorrencias {
+  display: none;  
+}
