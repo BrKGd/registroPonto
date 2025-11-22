@@ -2,9 +2,9 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="../icons/equipe.png">
+    <link rel="icon" type="image/png" href="icons/equipe.png">
     <title>PontoHoras | Funcionários</title>
-    <link rel="stylesheet" href="../Registro de Ponto/style.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -14,17 +14,17 @@
       <div id="usuarioLogado" class="usuario-centralizado"></div>
     
       <div class="header-buttons">
-        <img id="iconAdicionar" src="../icons/add.png" class="icon-acao" title="Adicionar novo usuário" onclick="adicionarFuncionario()">
+        <img id="iconAdicionar" src="icons/add.png" class="icon-acao" title="Adicionar novo usuário" onclick="adicionarFuncionario()">
 
         <button id="btnVerRegistros" class="btn-transparente" title="Ver Registros" onclick="window.location='registros.html'">
-          <img src="../icons/Registros.png" alt="Ver registros" class="icon-btn">
+          <img src="icons/Registros.png" alt="Ver registros" class="icon-btn">
         </button>
     
         <button id="btnLimpar" class="btn-transparente" title="Limpar Funcionários" onclick="limparFuncionarios()">
-          <img src="../icons/apagar-todos.png" alt="Limpar" class="icon-btn">
+          <img src="icons/apagar-todos.png" alt="Limpar" class="icon-btn">
         </button>        
 
-        <img src="../icons/sair.png" alt="Sair" class="logout-icon" title="Sair" onclick="fazerLogout()">
+        <img src="icons/sair.png" alt="Sair" class="logout-icon" title="Sair" onclick="fazerLogout()">
       </div>
     </header>
               
@@ -52,13 +52,13 @@
 
           <div class="botoes-acoes">
             
-            <img id="iconEditar" src="../icons/editar.png" 
+            <img id="iconEditar" src="icons/editar.png" 
                 class="icon-acao" title="Editar" onclick="editarFuncionario()">
           
-            <img id="iconSalvar" src="../icons/salvar.png" 
+            <img id="iconSalvar" src="icons/salvar.png" 
                 class="icon-acao" title="Salvar" onclick="salvarFuncionario()" style="display:none;">
           
-            <img id="iconExcluir" src="../icons/excluir.png" 
+            <img id="iconExcluir" src="icons/excluir.png" 
                 class="icon-acao" title="Excluir" onclick="excluirFuncionario()">
           </div>
                 
@@ -71,6 +71,7 @@
           
         </main>
         
-    <script src="../Registro de Ponto/funcionarios.js"></script>
+    <script src="funcionarios.js"></script>
   </body>
+
 </html>
