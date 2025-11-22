@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../icons/trancar.png">
+  <title>PontoHoras | Login</title>
+  <link rel="stylesheet" href="../Registro de Ponto/style.css">
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <div class="login-box">
+      <img src="../icons/ypetro.png" alt="YPETRO" class="login-logo">
+      <h2>Acesso ao Sistema</h2>
+
+      <input type="email" id="email" placeholder="E-mail" autocomplete="username" required>
+      <input type="password" id="senha" placeholder="Senha" autocomplete="current-password" required>
+
+      <button onclick="fazerLogin()">Entrar</button>
+
+      <p class="login-msg" id="msgErro"></p>
+
+      <!-- Novo link para cadastro -->
+      <p class="link-cadastro">
+        Ainda não tem conta?  
+        <a href="index.html">Clique aqui para se cadastrar</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="../Registro de Ponto/login.js"></script>
+</body>
+</html>
