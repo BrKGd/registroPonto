@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../icons/na-hora.png">
+  <title>PontoHoras | Registros</title>
+  <link rel="stylesheet" href="../Registro de Ponto/style.css">
+</head>
+<body>
+
+  <header class="header-centralizado">
+    <h1>Registros de Ponto</h1>
+  
+    <div id="usuarioLogado" class="usuario-centralizado"></div>
+
+  
+    <div class="header-buttons">
+      <button id="btnVerFuncionarios" class="btn-transparente" title="Ver Cadastro" onclick="window.location='index.html'">
+        <img src="../icons/identidade.png" alt="Ver Funcionários" class="icon-btn">
+      </button>
+      <button id="btnLimpar" class="btn-transparente" title="Limpar Registros" onclick="limparRegistros()">
+        <img src="../icons/apaga.png" alt="Limpar" class="icon-btn">
+      </button>      
+      <img src="../icons/sair.png" alt="Sair" class="logout-icon" title="Sair" onclick="fazerLogout()">
+    </div>
+  </header>
+  <main>
+    <!-- ================= FORM DE REGISTROS ================= -->
+    <section class="form">
+      <label for="funcionario">Funcionário</label>
+      <input type="text" id="funcionario" readonly>
+    
+      <label for="data">Data</label>
+      <input type="date" id="data">
+
+      <div class="toggle-container">
+        <label class="toggle-switch">
+          <input type="checkbox" id="modoManual" onchange="alternarModoManual()">
+          <span class="slider" title="Habilitar registro manual"></span>
+        </label>
+        <span style="font-weight:600; color:var(--verde-ypetro);">Registrar manualmente</span>
+      </div>
+
+      <!-- Linha de horários -->
+      <div class="linha-horarios">
+        <div class="campo destaque-status">
+          <img src="../icons/status_aberto.png" id="iconStatus" alt="Status" class="icon-campo">
+          <input type="text" id="status" placeholder="Status" readonly>
+        </div>
+
+        <div class="campo">
+          <img src="../icons/entrada.png" alt="Entrada" class="icon-campo">
+          <input type="text" id="entrada1" placeholder="Entrada" readonly>
+        </div>
+
+        <div class="campo">
+          <img src="../icons/almoco.png" alt="Saída Almoço" class="icon-campo">
+          <input type="text" id="saida1" placeholder="Saída Almoço" readonly>
+        </div>
+
+        <div class="campo">
+          <img src="../icons/almoco.png" alt="Retorno Almoço" class="icon-campo">
+          <input type="text" id="entrada2" placeholder="Retorno Almoço" readonly>
+        </div>
+
+        <div class="campo">
+          <img src="../icons/sair.png" alt="Saída" class="icon-campo">
+          <input type="text" id="saida2" placeholder="Saída" readonly>
+        </div>
+
+        <div class="campo">
+          <img src="../icons/total.png" alt="Total" class="icon-campo">
+          <input type="text" id="total" placeholder="Total" readonly>
+        </div>
+      </div>
+
+      <div class="linha-botao">
+        <button id="btnRegistrar" onclick="registrarHorario()">Registrar Horário</button>
+      </div>
+    </section>
+    <!-- ================= TABELA DE REGISTROS ================= -->
+    <section class="lista">
+      <h2>Registros Salvos</h2>
+
+      <div class="filtro-export-container" style="justify-content: space-between;">
+
+        <!-- Filtro de mês -->
+        <div class="filtro-mes">
+          <label for="selectMes">Mês:</label>
+          <select id="selectMes" onchange="aplicarFiltros()">
+            <option value="">Todos</option>
+            <option value="01">Janeiro</option>
+            <option value="02">Fevereiro</option>
+            <option value="03">Março</option>
+            <option value="04">Abril</option>
+            <option value="05">Maio</option>
+            <option value="06">Junho</option>
+            <option value="07">Julho</option>
+            <option value="08">Agosto</option>
+            <option value="09">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+      
+          <label for="selectAno">Ano:</label>
+          <select id="selectAno" onchange="aplicarFiltros()">
+              <option value="">Todos</option>
+          </select>
+        </div>
+
+        <p id="nRegistros"></p>
+      
+        <!-- Ícones de ação -->
+        <div class="acoes-ocorrencias">
+          <button id="btnExcluirReg" class="btn-transparente" style="display:none;" title="Excluir registro">
+              <img src="../icons/excluir.png" class="icon-btn">
+          </button>
+
+          <button id="btnEditarReg" class="btn-transparente" style="display:none;" title="Editar registro">
+              <img id="iconEditarReg" src="../icons/editar.png" class="icon-btn">
+          </button>
+
+          <button id="btnLimparTodos" class="btn-transparente danger" title="Apagar todos os registros" onclick="limparTodosRegistros()">
+            <img src="../icons/apagar-todos.png" class="icon-btn">
+          </button>
+        
+          <button id="btnImportarReg" class="btn-transparente" title="Importar registros" onclick="importarRegistrosExcel()">
+            <img src="../icons/importar.png" class="icon-btn">
+          </button>
+          
+          <input type="file" id="inputExcel" accept=".xlsx, .xls" style="display:none;" onchange="processarExcel(this)">
+        
+          <button id="btnExportarReg" class="btn-transparente" title="Exportar registros" onclick="exportarRegistrosFiltrados()">
+              <img src="../icons/exportar.png" class="icon-btn">
+          </button>
+        </div>
+
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Entrada</th>
+            <th>Saída Almoço</th>
+            <th>Retorno Almoço</th>
+            <th>Saída</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="listaRegistros"></tbody>
+      </table>
+    </section>
+    <!-- ================= OCORRÊNCIAS ================= -->
+    <section class="lista ocorrencias">
+      <h2>Ocorrências</h2>
+
+      <!-- Container único (filtros + ícones) -->
+      <div class="filtro-ocorrencias-container">
+
+        <!-- Filtros -->
+        <div class="filtros-ocorrencias">
+          <div class="filtro-mes">
+              <label for="filtroTipo">Tipo:</label>
+              <select id="filtroTipo" onchange="filtrarOcorrencias()">
+                  <option value="">Todos</option>
+                  <option value="Atraso">Atraso</option>
+                  <option value="Hora Extra">Hora Extra</option>
+              </select>
+          </div>
+
+          <!-- Filtro de Mês -->
+          <div class="filtro-mes">
+            <label for="filtroMesOc">Mês:</label>
+            <select id="filtroMesOc" onchange="filtrarOcorrencias()">
+                <option value="">Todos</option>
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+            </select>
+          </div>
+
+          <!-- Filtro de Ano -->
+          <div class="filtro-mes">
+            <label for="filtroAnoOc">Ano:</label>
+            <select id="filtroAnoOc" onchange="filtrarOcorrencias()">
+                <option value="">Todos</option>
+            </select>
+          </div>
+
+          <!-- Filtro de Dia -->
+          <div class="filtro-mes">
+            <label for="filtroDiaOc">Dia:</label>
+            <select id="filtroDiaOc" onchange="filtrarOcorrencias()">
+                <option value="">Todos</option>
+            </select>
+          </div>
+
+          
+        </div>
+
+        <!-- Ícones -->
+        <div class="acoes-ocorrencias">
+          <button id="btnExcluirOc" class="btn-transparente" title="Excluir ocorrência" style="display:none;">
+              <img src="../icons/excluir.png" class="icon-btn">
+          </button>
+
+          <button id="btnEditarOc" class="btn-transparente" title="Editar ocorrência" style="display:none;">
+              <img id="iconEditarOc" src="../icons/editar.png" class="icon-btn">
+          </button>
+
+          <button id="btnLimparOcorrencias" class="btn-transparente danger" title="Apagar todas as ocorrências" onclick="limparTodasOcorrencias()">
+            <img src="../icons/apagar-todos.png" class="icon-btn">
+          </button>        
+
+          <button id="btnExportarOcorrencias" class="btn-transparente" title="Exportar Ocorrências" onclick="exportarOcorrencias()">
+              <img src="../icons/exportar.png" class="icon-btn">
+          </button>
+        </div>
+
+      </div>
+
+      <table>
+          <thead>
+              <tr>
+                  <th>Data</th>
+                  <th>Tipo</th>
+                  <th>Início</th>
+                  <th>Fim</th>
+                  <th>Total</th>
+                  <th>Usuário</th>
+                  <th>Justificativa</th>
+              </tr>
+          </thead>
+          <tbody id="listaOcorrencias"></tbody>
+      </table>
+    </section>
+  </main>
+  <!-- Biblioteca XLSX -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="../Registro de Ponto/registros.js"></script>
+</body>
+</html>
