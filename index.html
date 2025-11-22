@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../icons/equipe.png">
+    <title>PontoHoras | Funcionários</title>
+    <link rel="stylesheet" href="../Registro de Ponto/style.css">
+  </head>
+  <body>
+
+    <header class="header-centralizado">
+      <h1>Funcionários</h1>
+    
+      <div id="usuarioLogado" class="usuario-centralizado"></div>
+    
+      <div class="header-buttons">
+        <img id="iconAdicionar" src="../icons/add.png" class="icon-acao" title="Adicionar novo usuário" onclick="adicionarFuncionario()">
+
+        <button id="btnVerRegistros" class="btn-transparente" title="Ver Registros" onclick="window.location='registros.html'">
+          <img src="../icons/Registros.png" alt="Ver registros" class="icon-btn">
+        </button>
+    
+        <button id="btnLimpar" class="btn-transparente" title="Limpar Funcionários" onclick="limparFuncionarios()">
+          <img src="../icons/apagar-todos.png" alt="Limpar" class="icon-btn">
+        </button>        
+
+        <img src="../icons/sair.png" alt="Sair" class="logout-icon" title="Sair" onclick="fazerLogout()">
+      </div>
+    </header>
+              
+      <main>
+        <!-- Título do formulário-->
+        <h2 class="titulo-secao" id="tituloForm">Dados do Funcionário</h2>
+
+        <section class="form">
+          <input type="text" id="nome" placeholder="Nome do funcionário">
+          <input type="email" id="email" placeholder="E-mail">
+          <input type="password" id="senha" placeholder="Senha">
+        
+          <!-- 🔹 Novo campo Sexo -->
+          <select id="sexo">
+            <option value="">Selecione o sexo</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+          </select>
+        
+          <!-- Campo Tipo de Usuário (somente no primeiro cadastro) -->
+          <select id="tipoUsuario" style="display: none;">
+            <option value="Administrador">Administrador</option>
+            <option value="Comum">Comum</option>
+          </select>
+
+          <div class="botoes-acoes">
+            
+            <img id="iconEditar" src="../icons/editar.png" 
+                class="icon-acao" title="Editar" onclick="editarFuncionario()">
+          
+            <img id="iconSalvar" src="../icons/salvar.png" 
+                class="icon-acao" title="Salvar" onclick="salvarFuncionario()" style="display:none;">
+          
+            <img id="iconExcluir" src="../icons/excluir.png" 
+                class="icon-acao" title="Excluir" onclick="excluirFuncionario()">
+          </div>
+                
+        </section>      
+            
+          <section class="lista">
+            <h2>Lista de Funcionários</h2>
+            <div id="listaFuncionarios" class="grid-funcionarios"></div>
+          </section>
+          
+        </main>
+        
+    <script src="../Registro de Ponto/funcionarios.js"></script>
+  </body>
+</html>
